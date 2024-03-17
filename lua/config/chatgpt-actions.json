@@ -46,6 +46,16 @@
       }
     }
   },
+  "fachlichkorrekter_text": {
+    "type": "chat",
+    "opts": {
+      "template": "Schreibe den Text so das keine Ich-form benutzt wird oder ein 'man' im text auftaucht, ausserdem soll beachtet werden, dass die Zeit form praesens ist.:\n\n{{input}}",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-3.5-turbo"
+      }
+    },
+  },
   "translate": {
     "type": "chat",
     "opts": {
