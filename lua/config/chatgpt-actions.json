@@ -29,6 +29,23 @@
       }
     }
   },
+  "rewrite_text": {
+    "type": "chat",
+    "opts": {
+      "template": "Rewrite the text in the language {{lang}}:\n\n{{input}}",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-3.5-turbo"
+      }
+    },
+    "args": {
+      "lang": {
+        "type": "string",
+        "optional": "true",
+        "default": "english"
+      }
+    }
+  },
   "translate": {
     "type": "chat",
     "opts": {
