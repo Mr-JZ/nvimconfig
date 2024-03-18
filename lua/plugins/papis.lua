@@ -1,4 +1,4 @@
-{
+return {
   "jghauser/papis.nvim",
   dependencies = {
     "kkharji/sqlite.lua",
