@@ -58,7 +58,6 @@ return  {
             }
         },
     },
-  },
   -- change some options
   opts = {
     defaults = {
