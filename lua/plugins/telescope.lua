@@ -12,10 +12,6 @@ return  {
   dependencies = {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "make",
-    config = function()
-      require("telescope").load_extension("fzf")
-      require("telescope").load_extension("zotero")
-    end,
     {
       'jmbuhr/telescope-zotero',
       dependencies = {
@@ -57,6 +53,10 @@ return  {
 
             }
         },
+    config = function()
+      require("telescope").load_extension("fzf")
+      require("telescope").load_extension 'zotero'
+    end,
     },
   -- change some options
   opts = {
