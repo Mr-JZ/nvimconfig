@@ -3,7 +3,7 @@ return {
     event = "VeryLazy",
     config = function()
       require("chatgpt").setup({
-      actions_paths = {"~/.config/nvim/lua/config/chatgpt-actions.json"},
+      actions_paths = {"/home/mr-jz/.config/nvim/lua/config/chatgpt-actions.json"},
     })
     end,
     dependencies = {
