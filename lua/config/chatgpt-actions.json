@@ -54,7 +54,7 @@
       "params": {
         "model": "gpt-3.5-turbo"
       }
-    },
+    }
   },
   "translate": {
     "type": "chat",
