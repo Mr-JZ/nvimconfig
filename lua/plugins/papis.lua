@@ -1,5 +1,6 @@
 return {
   "jghauser/papis.nvim",
+  enabled = false,
   dependencies = {
     "kkharji/sqlite.lua",
     "nvim-lua/plenary.nvim",
@@ -8,7 +9,7 @@ return {
   },
   config = function()
     require("papis").setup({
-    -- Your configuration goes here
+      -- Your configuration goes here
     })
   end,
 }

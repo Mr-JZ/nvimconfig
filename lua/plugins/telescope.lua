@@ -1,87 +1,99 @@
-return  {
+return {
   "nvim-telescope/telescope.nvim",
-  keys = {
-    -- add a keymap to browse plugin files
-    -- stylua: ignore
-    {
-      "<leader>fp",
-      function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
-      desc = "Find Plugin File",
-    },
-  },
   dependencies = {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",
+    { "nvim-telescope/telescope-ui-select.nvim" },
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    { "nvim-telescope/telescope-dap.nvim" },
     {
-      'jmbuhr/telescope-zotero',
+      "jmbuhr/telescope-zotero.nvim",
+      enabled = true,
+      dev = false,
       dependencies = {
-        { 'kkharji/sqlite.lua' },
+        { "kkharji/sqlite.lua" },
       },
-      -- default opts shown
-      opts = {
-        zotero_db_path = '~/Zotero/zotero.sqlite',
-        better_bibtex_db_path = '~/Zotero/better-bibtex.sqlite',
-        -- specify options for different filetypes
-        -- locate_bib can be a string or a function
-        ft = {
-          quarto = {
-            insert_key_formatter = function(citekey)
-              return '@' .. citekey
-            end,
-            locate_bib = bib.locate_quarto_bib,
-          },
-          tex = {
-            insert_key_formatter = function(citekey)
-              return '\\cite{' .. citekey .. '}'
-            end,
-            locate_bib = bib.locate_tex_bib,
-          },
-          plaintex = {
-            insert_key_formatter = function(citekey)
-              return '\\cite{' .. citekey .. '}'
-            end,
-            locate_bib = bib.locate_tex_bib,
-          },
-          -- fallback for unlisted filetypes
-          default = {
-            insert_key_formatter = function(citekey)
-              return '@' .. citekey
-            end,
-            locate_bib = bib.locate_quarto_bib,
-          },
-        },
-
-            }
-        },
-    config = function()
-      require("telescope").load_extension("fzf")
-      require("telescope").load_extension 'zotero'
-    end,
-    },
-  -- change some options
-  opts = {
-    defaults = {
-      layout_strategy = "horizontal",
-      layout_config = { prompt_position = "top" },
-      sorting_strategy = "ascending",
-      winblend = 0,
-    },
-    ensure_installed = {
-      "bash",
-      "html",
-      "javascript",
-      "json",
-      "lua",
-      "c",
-      "markdown",
-      "markdown_inline",
-      "python",
-      "query",
-      "regex",
-      "tsx",
-      "typescript",
-      "vim",
-      "yaml",
+      config = function()
+        vim.keymap.set("n", "<leader>fz", ":Telescope zotero<cr>", { desc = "[z]otero" })
+      end,
     },
   },
+  config = function()
+    local telescope = require("telescope")
+    local actions = require("telescope.actions")
+    local previewers = require("telescope.previewers")
+    local new_maker = function(filepath, bufnr, opts)
+      opts = opts or {}
+      filepath = vim.fn.expand(filepath)
+      vim.loop.fs_stat(filepath, function(_, stat)
+        if not stat then
+          return
+        end
+        if stat.size > 100000 then
+          return
+        else
+          previewers.buffer_previewer_maker(filepath, bufnr, opts)
+        end
+      end)
+    end
+    telescope.setup({
+      defaults = {
+        buffer_previewer_maker = new_maker,
+        file_ignore_patterns = {
+          "node_modules",
+          "%_files/*.html",
+          "%_cache",
+          ".git/",
+          "site_libs",
+          ".venv",
+        },
+        layout_strategy = "flex",
+        sorting_strategy = "ascending",
+        layout_config = {
+          prompt_position = "top",
+        },
+        mappings = {
+          i = {
+            ["<C-u>"] = false,
+            ["<C-d>"] = false,
+            ["<esc>"] = actions.close,
+            ["<c-j>"] = actions.move_selection_next,
+            ["<c-k>"] = actions.move_selection_previous,
+          },
+        },
+      },
+      pickers = {
+        find_files = {
+          hidden = false,
+          find_command = {
+            "rg",
+            "--files",
+            "--hidden",
+            "--glob",
+            "!.git/*",
+            "--glob",
+            "!**/.Rpro.user/*",
+            "--glob",
+            "!_site/*",
+            "--glob",
+            "!docs/**/*.html",
+            "-L",
+          },
+        },
+      },
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown(),
+        },
+        fzf = {
+          fuzzy = true, -- false will only do exact matching
+          override_generic_sorter = true, -- override the generic sorter
+          override_file_sorter = true, -- override the file sorter
+          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+        },
+      },
+    })
+    telescope.load_extension("fzf")
+    telescope.load_extension("ui-select")
+    telescope.load_extension("dap")
+    telescope.load_extension("zotero")
+  end,
 }
