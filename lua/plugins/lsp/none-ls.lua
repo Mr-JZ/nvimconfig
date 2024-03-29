@@ -20,7 +20,7 @@ return {
         "pylint", -- python linter
         "eslint_d", -- js linter
         "gofumpt",
-        "goimports_reviser",
+        "goimports-reviser",
         "golines",
       },
     })
@@ -47,7 +47,6 @@ return {
         formatting.isort,
         formatting.black,
         formatting.gofumpt,
-        formatting.goimports_reviser,
         formatting.golines,
         diagnostics.pylint,
         diagnostics.eslint_d.with({ -- js/ts linter

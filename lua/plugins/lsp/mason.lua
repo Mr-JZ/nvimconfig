@@ -38,6 +38,9 @@ return {
         "prismals",
         "pyright",
         "gopls",
+        "ltex",
+        "docker_compose_language_service",
+        "dockerls",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -52,9 +55,10 @@ return {
         "pylint", -- python linter
         "eslint_d", -- js linter
         "gofumpt",
-        "goimports_reviser",
+        "goimports-reviser",
         "golines",
       },
+      automatic_installation = true,
     })
   end,
 }
