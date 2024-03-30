@@ -61,7 +61,6 @@ return {
         "gofumpt",
         "goimports-reviser",
         "golines",
-        "delve",
       },
       automatic_installation = true,
     })

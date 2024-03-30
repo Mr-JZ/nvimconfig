@@ -1,7 +1,8 @@
 return {
   "nvimtools/none-ls.nvim", -- configure formatters & linters
+  enabled = true,
   lazy = true,
-  -- event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
+  event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
   dependencies = {
     "jay-babu/mason-null-ls.nvim",
   },
@@ -48,12 +49,13 @@ return {
         formatting.black,
         formatting.gofumpt,
         formatting.golines,
+        formatting.goimports_reviser,
         diagnostics.pylint,
-        diagnostics.eslint_d.with({ -- js/ts linter
-          condition = function(utils)
-            return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
-          end,
-        }),
+        -- diagnostics.eslint_d.with({ -- js/ts linter
+        --   condition = function(utils)
+        --     return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
+        --   end,
+        -- }),
       },
       -- configure format on save
       on_attach = function(current_client, bufnr)
