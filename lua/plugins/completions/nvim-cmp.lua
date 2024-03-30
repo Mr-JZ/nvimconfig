@@ -5,9 +5,15 @@ return {
     "hrsh7th/cmp-emoji",
     "Exafunction/codeium.nvim",
   },
-  config = function()
+  opts = function(_, opts)
+    table.insert(opts.sources, 1, {
+      name = "copilot",
+      group_index = 1,
+      priority = 50,
+    })
     local cmp = require("cmp")
     require("luasnip.loaders.from_vscode").lazy_load()
+    require("copilot").setup({})
 
     cmp.setup({
       snippet = {
@@ -34,37 +40,6 @@ return {
       }, {
         { name = "buffer" },
       }),
-    })
-
-    -- Set configuration for specific filetype.
-    cmp.setup.filetype("gitcommit", {
-      sources = cmp.config.sources({
-        { name = "git" }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
-      }, {
-        { name = "buffer" },
-      }),
-    })
-
-    -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-    cmp.setup.cmdline({ "/", "?" }, {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = "buffer" },
-      },
-    })
-  end,
-  ---@param opts cmp.ConfigSchema
-  opts = function(_, opts)
-    table.insert(opts.sources, { name = "emoji" })
-    table.insert(opts.sources, 1, {
-      name = "copilot",
-      group_index = 1,
-      priority = 100,
-    })
-    table.insert(opts.sources, 1, {
-      name = "codeium",
-      group_index = 1,
-      priority = 100,
     })
   end,
 }
