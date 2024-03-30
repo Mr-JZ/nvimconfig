@@ -19,6 +19,7 @@ require("lazy").setup({
     { import = "plugins.lsp" },
     { import = "plugins.dap" },
     { import = "plugins.ai" },
+    { import = "plugins.completions" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
