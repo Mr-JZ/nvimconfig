@@ -41,6 +41,10 @@ return {
         "ltex",
         "docker_compose_language_service",
         "dockerls",
+        "astro",
+        "kotlin_language_server",
+        "nil_ls",
+        "templ",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -57,6 +61,7 @@ return {
         "gofumpt",
         "goimports-reviser",
         "golines",
+        "delve",
       },
       automatic_installation = true,
     })

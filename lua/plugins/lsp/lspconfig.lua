@@ -1,4 +1,5 @@
 return {
+  -- server config url: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
@@ -154,6 +155,11 @@ return {
       },
     })
 
+    lspconfig["templ"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
@@ -173,6 +179,46 @@ return {
           },
         },
       },
+    })
+
+    lspconfig["docker_compose_language_service"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["dockerls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["ltex"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        ltex = {
+          language = "de-DE",
+        },
+      },
+    })
+
+    lspconfig["astro"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["kotlin_language_server"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["nil_ls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["templ"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
   end,
 }
