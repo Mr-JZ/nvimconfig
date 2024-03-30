@@ -47,3 +47,4 @@ debug
 foo.*
 *.log
 data
+lua/plugins/ai/api_key.txt
