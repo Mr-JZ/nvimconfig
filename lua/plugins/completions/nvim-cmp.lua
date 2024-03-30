@@ -19,6 +19,12 @@ return {
           end)
         end,
       },
+      {
+        "Exafunction/codeium.nvim",
+        cmd = "Codeium",
+        build = ":Codeium Auth",
+        opts = {},
+      },
     },
   },
   ---@param opts cmp.ConfigSchema
@@ -26,6 +32,11 @@ return {
     table.insert(opts.sources, { name = "emoji" })
     table.insert(opts.sources, 1, {
       name = "copilot",
+      group_index = 1,
+      priority = 100,
+    })
+    table.insert(opts.sources, 1, {
+      name = "codeium",
       group_index = 1,
       priority = 100,
     })
