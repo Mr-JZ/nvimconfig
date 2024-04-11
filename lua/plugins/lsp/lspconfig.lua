@@ -12,11 +12,9 @@ return {
     local util = require("lspconfig/util")
 
     -- import cmp-nvim-lsp plugin
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-    local keymap = vim.keymap -- for conciseness
-
     local opts = { noremap = true, silent = true }
+    local keymap = vim.keymap -- for conciseness
+    local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local on_attach = function(client, bufnr)
       opts.buffer = bufnr
 
@@ -80,6 +78,11 @@ return {
 
     -- configure typescript server with plugin
     lspconfig["tsserver"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["dartls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
