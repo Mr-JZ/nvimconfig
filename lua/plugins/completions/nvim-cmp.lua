@@ -22,6 +22,7 @@ return {
           vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
           require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
         end,
+        -- TODO: implement ultisnips
       },
       window = {
         completion = cmp.config.window.bordered(),
@@ -40,6 +41,12 @@ return {
       }, {
         { name = "buffer" },
       }),
+    })
+    cmp.setup.filetype({ "sql" }, {
+      sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" },
+      },
     })
   end,
 }
