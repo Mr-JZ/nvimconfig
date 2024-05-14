@@ -6,7 +6,7 @@ return {
       renderer = {
         type = "image",
         options = {
-          prog = "eog",
+          prog = "feh",
           dark_mode = true,
           format = nil, -- Allowed values: nil, 'png', 'svg'.
         },
