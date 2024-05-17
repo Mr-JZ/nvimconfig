@@ -15,6 +15,15 @@ return {
     " viewer method:
     let g:vimtex_view_method = 'zathura'
 
+    let g:vimtex_compiler_latexmk = {
+        \ 'options' : [
+        \   '-shell-escape',
+        \   '-verbose',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-interaction=nonstopmode',
+        \ ],
+        \}
     " Or with a generic interface:
     " let g:vimtex_view_general_viewer = 'okular'
     " let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex' 
