@@ -5,10 +5,8 @@
       "template": "Complete the following code written in {{lang}} by pasting the existing code and continuing it.\n\nExisting code:\n```{{filetype}}\n{{input}}\n```\n\n```{{filetype}}\n",
       "strategy": "replace",
       "params": {
-        "model": "gpt-3.5-turbo",
-        "stop": [
-          "```"
-        ]
+        "model": "gpt-4o",
+        "stop": ["```"]
       }
     }
   },
@@ -18,7 +16,7 @@
       "template": "Correct this to standard {{lang}}:\n\n{{input}}",
       "strategy": "replace",
       "params": {
-        "model": "gpt-3.5-turbo"
+        "model": "gpt-4o"
       }
     },
     "args": {
@@ -35,7 +33,7 @@
       "template": "Rewrite the text in the language {{lang}}:\n\n{{input}}",
       "strategy": "replace",
       "params": {
-        "model": "gpt-3.5-turbo"
+        "model": "gpt-4o"
       }
     },
     "args": {
@@ -52,7 +50,7 @@
       "template": "Schreibe den Text so das keine Ich-form benutzt wird oder ein 'man' im text auftaucht, ausserdem soll beachtet werden, dass die Zeit form praesens ist.:\n\n{{input}}",
       "strategy": "replace",
       "params": {
-        "model": "gpt-3.5-turbo"
+        "model": "gpt-4o"
       }
     }
   },
@@ -62,7 +60,7 @@
       "template": "Translate this into {{lang}}:\n\n{{input}}",
       "strategy": "replace",
       "params": {
-        "model": "gpt-3.5-turbo",
+        "model": "gpt-4o",
         "temperature": 0.3
       }
     },
@@ -80,7 +78,7 @@
       "template": "{{input}}\n\n Erstelle aus dem Text {{number}} funktionale Anforderungen in dem Schema: <System> [ muss | sollte | wird ] [ - | <Akteur> die Moeglichkeit bieten | faehig sein ] <Objekt> <Prozesswort>",
       "strategy": "replace",
       "params": {
-        "model": "gpt-3.5-turbo",
+        "model": "gpt-4o",
         "temperature": 0.9
       }
     },
@@ -98,7 +96,7 @@
       "template": "{{input}}\n\n Erstelle aus dem Text {{number}} nicht-funktionale Anforderungen in dem Schema: <Bedingung> [ muss | sollte | wird ] <Eigenschaft> <Betrachtungsgegenstand> <Vergleichsoperator> <Vergleichsoperator> <Wert> sein",
       "strategy": "replace",
       "params": {
-        "model": "gpt-3.5-turbo",
+        "model": "gpt-4o",
         "temperature": 0.9
       }
     },
@@ -116,7 +114,7 @@
       "template": "Extract the main keywords from the following text.\n\n{{input}}",
       "strategy": "replace",
       "params": {
-        "model": "gpt-3.5-turbo",
+        "model": "gpt-4o",
         "temperature": 0.5,
         "frequency_penalty": 0.8
       }
@@ -128,10 +126,8 @@
       "template": "# An elaborate, high quality docstring for the above function:\n# Writing a good docstring\n\nThis is an example of writing a really good docstring that follows a best practice for the given language. Attention is paid to detailing things like\n* parameter and return types (if applicable)\n* any errors that might be raised or returned, depending on the language\n\nI received the following code:\n\n```{{filetype}}\n{{input}}\n```\n\nThe code with a really good docstring added is below:\n\n```{{filetype}}",
       "strategy": "edit",
       "params": {
-        "model": "gpt-3.5-turbo",
-        "stop": [
-          "```"
-        ]
+        "model": "gpt-4o",
+        "stop": ["```"]
       }
     }
   },
@@ -141,10 +137,19 @@
       "template": "Implement tests for the following code.\n\nCode:\n```{{filetype}}\n{{input}}\n```\n\nTests:\n```{{filetype}}",
       "strategy": "append",
       "params": {
-        "model": "gpt-3.5-turbo",
-        "stop": [
-          "```"
-        ]
+        "model": "gpt-4o",
+        "stop": ["```"]
+      }
+    }
+  },
+  "write_text_from_example": {
+    "type": "chat",
+    "opts": {
+      "template": "```\n{{input}}```\n Kannst du einen Text aus meiner Stichpunkten vom Vorproject im Format der Textvorlage geben?",
+      "strategy": "append",
+      "params": {
+        "model": "gpt-4o",
+        "stop": ["```"]
       }
     }
   },
@@ -154,10 +159,8 @@
       "template": "Optimize the following code.\n\nCode:\n```{{filetype}}\n{{input}}\n```\n\nOptimized version:\n```{{filetype}}",
       "strategy": "edit",
       "params": {
-        "model": "gpt-3.5-turbo",
-        "stop": [
-          "```"
-        ]
+        "model": "gpt-4o",
+        "stop": ["```"]
       }
     }
   },
@@ -167,7 +170,7 @@
       "template": "Summarize the following text.\n\nText:\n\"\"\"\n{{input}}\n\"\"\"\n\nSummary:",
       "strategy": "edit",
       "params": {
-        "model": "gpt-3.5-turbo"
+        "model": "gpt-4o"
       }
     }
   },
@@ -177,10 +180,8 @@
       "template": "Fix bugs in the below code\n\nCode:\n```{{filetype}}\n{{input}}\n```\n\nFixed code:\n```{{filetype}}",
       "strategy": "edit",
       "params": {
-        "model": "gpt-3.5-turbo",
-        "stop": [
-          "```"
-        ]
+        "model": "gpt-4o",
+        "stop": ["```"]
       }
     }
   },
@@ -191,10 +192,8 @@
       "template": "Explain the following code:\n\nCode:\n```{{filetype}}\n{{input}}\n```\n\nUse markdown format.\nHere's what the above code is doing:\n```",
       "strategy": "display",
       "params": {
-        "model": "gpt-3.5-turbo",
-        "stop": [
-          "```"
-        ]
+        "model": "gpt-4o",
+        "stop": ["```"]
       }
     }
   },
@@ -204,7 +203,7 @@
       "template": "Insert a roxygen skeleton to document this R function:\n\n```{{filetype}}\n[insert]\n\n{{input}}\n\n```",
       "strategy": "prepend",
       "params": {
-        "model": "gpt-3.5-turbo",
+        "model": "gpt-4o",
         "temperature": 0.5,
         "max_tokens": 1024
       }
@@ -216,7 +215,7 @@
       "strategy": "quick_fix",
       "template": "{{input}}",
       "params": {
-        "model": "gpt-3.5-turbo",
+        "model": "gpt-4o",
         "max_tokens": 2048,
         "messages": [
           {
