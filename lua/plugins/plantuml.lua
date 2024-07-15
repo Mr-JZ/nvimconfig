@@ -6,9 +6,9 @@ return {
       renderer = {
         type = "image",
         options = {
-          prog = "feh",
+          prog = "pqiv",
           dark_mode = true,
-          format = nil, -- Allowed values: nil, 'png', 'svg'.
+          format = "png", -- Allowed values: nil, 'png', 'svg'.
         },
       },
       render_on_write = true,
