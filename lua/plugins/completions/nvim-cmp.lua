@@ -1,9 +1,22 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
-    "zbirenbaum/copilot-cmp",
     "hrsh7th/cmp-emoji",
     "Exafunction/codeium.nvim",
+    {
+      "zbirenbaum/copilot-cmp",
+      dependencies = "copilot.lua",
+      opts = {},
+      config = function(_, opts)
+        local copilot_cmp = require("copilot_cmp")
+        copilot_cmp.setup(opts)
+        -- attach cmp source whenever copilot attaches
+        -- fixes lazy-loading issues with the copilot cmp source
+        LazyVim.lsp.on_attach(function(client)
+          copilot_cmp._on_insert_enter({})
+        end, "copilot")
+      end,
+    },
   },
   opts = function(_, opts)
     table.insert(opts.sources, 1, {
@@ -36,17 +49,17 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       }),
       sources = cmp.config.sources({
-        -- { name = "nvim_lsp" },
+        { name = "nvim_lsp" },
         { name = "luasnip" }, -- For luasnip users.
       }, {
         { name = "buffer" },
       }),
     })
-    cmp.setup.filetype({ "sql" }, {
-      sources = {
-        { name = "vim-dadbod-completion" },
-        { name = "buffer" },
-      },
-    })
+    -- cmp.setup.filetype({ "sql" }, {
+    --   sources = {
+    --     { name = "vim-dadbod-completion" },
+    --     { name = "buffer" },
+    --   },
+    -- })
   end,
 }
