@@ -59,6 +59,11 @@ return {
       keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
     end
 
+    vim.diagnostic.config({
+      virtual_text = true,
+      signs = true,
+    })
+
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -85,6 +90,15 @@ return {
     lspconfig["dartls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      settings = {
+        dart = {
+          analysesExludedFolders = {
+            vim.fn.expand("$HOME/AppData/Local/Pub/Cache"),
+            vim.fn.expand("$HOME/.pub-cache"),
+            vim.fn.expand("/opt/homebrew/"),
+          },
+        },
+      },
     })
 
     -- configure css server
