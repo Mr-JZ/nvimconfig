@@ -20,7 +20,7 @@ require("lazy").setup({
     { import = "plugins.lsp" },
     { import = "plugins.dap" },
     { import = "plugins.ai" },
-    { import = "plugins.completions" },
+    -- { import = "plugins.completions" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -40,7 +40,6 @@ require("lazy").setup({
         "gzip",
         "matchit",
         "matchparen",
-        -- "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",

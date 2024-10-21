@@ -1,19 +1,27 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
-    "zbirenbaum/copilot-cmp",
+    -- "zbirenbaum/copilot-cmp",
     "hrsh7th/cmp-emoji",
     "Exafunction/codeium.nvim",
+    {
+      "MattiasMTS/cmp-dbee",
+      dependencies = {
+        {"kndndrj/nvim-dbee"}
+      },
+      ft = "sql", -- optional but good to have
+      opts = {}, -- needed
+    },
   },
   opts = function(_, opts)
-    table.insert(opts.sources, 1, {
-      name = "copilot",
-      group_index = 1,
-      priority = 50,
-    })
+    -- table.insert(opts.sources, 1, {
+    --   name = "copilot",
+    --   group_index = 1,
+    --   priority = 50,
+    -- })
     local cmp = require("cmp")
     require("luasnip.loaders.from_vscode").lazy_load()
-    require("copilot").setup({})
+    -- require("copilot").setup({})
 
     cmp.setup({
       snippet = {
@@ -31,22 +39,17 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping.abort(),
+        ["<C-y>"] = cmp.mapping.completion(),
+        ["<C-a>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       }),
       sources = cmp.config.sources({
         -- { name = "nvim_lsp" },
         { name = "luasnip" }, -- For luasnip users.
-      }, {
+        { name = "supermaven" },
+        { name = "cmp-dbee" },
         { name = "buffer" },
       }),
-    })
-    cmp.setup.filetype({ "sql" }, {
-      sources = {
-        { name = "vim-dadbod-completion" },
-        { name = "buffer" },
-      },
     })
   end,
 }
