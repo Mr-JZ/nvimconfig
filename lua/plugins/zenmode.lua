@@ -1,7 +1,6 @@
 return {
   "folke/zen-mode.nvim",
-  config = function()
-    require("zen-mode").setup({
+  opts = {
       window = {
         backdrop = 0.95,
         width = 80, -- width of the Zen window
@@ -34,6 +33,5 @@ return {
           font = "+20", -- (10% increase per step)
         },
       },
-    })
-  end,
+    }
 }

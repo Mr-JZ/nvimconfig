@@ -1,8 +1,8 @@
 return {
   "https://gitlab.com/itaranto/plantuml.nvim",
   tag = "v1.5.0",
-  config = function()
-    require("plantuml").setup({
+  enabled = false,
+  opts = {
       renderer = {
         type = "image",
         options = {
@@ -12,6 +12,5 @@ return {
         },
       },
       render_on_write = true,
-    })
-  end,
+    }
 }

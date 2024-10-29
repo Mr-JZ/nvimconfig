@@ -7,11 +7,9 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   keys = {
-    { "<space>o", "<cmd>Octo<cr>", desc = "Octo" },
+    { "<space>oo", "<cmd>Octo<cr>", desc = "Octo" },
   },
-  config = function()
-    require("octo").setup({
+  opts = {
       enable_builtin = true,
-    })
-  end,
+  },
 }

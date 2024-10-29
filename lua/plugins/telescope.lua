@@ -2,7 +2,7 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     { "nvim-telescope/telescope-ui-select.nvim" },
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
     { "nvim-telescope/telescope-dap.nvim" },
     -- {
     --   "jmbuhr/telescope-zotero.nvim",
@@ -15,11 +15,25 @@ return {
     --     vim.keymap.set("n", "<leader>fz", ":Telescope zotero<cr>", { desc = "[z]otero" })
     --   end,
     -- },
+    "nvim-tree/nvim-web-devicons",
+    "folke/todo-comments.nvim",
   },
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
     local previewers = require("telescope.previewers")
+
+    local transform_mod = require("telescope.actions.mt").transform_mod
+
+    local trouble = require("trouble")
+    local trouble_telescope = require("trouble.sources.telescope")
+
+    -- or create your custom action
+    local custom_actions = transform_mod({
+      open_trouble_qflist = function(prompt_bufnr)
+        trouble.toggle("quickfix")
+      end,
+    })
     local new_maker = function(filepath, bufnr, opts)
       opts = opts or {}
       filepath = vim.fn.expand(filepath)
@@ -57,6 +71,8 @@ return {
             ["<esc>"] = actions.close,
             ["<c-j>"] = actions.move_selection_next,
             ["<c-k>"] = actions.move_selection_previous,
+            ["<C-q>"] = actions.send_selected_to_qflist + custom_actions.open_trouble_qflist,
+            ["<C-t>"] = trouble_telescope.open,
           },
         },
       },

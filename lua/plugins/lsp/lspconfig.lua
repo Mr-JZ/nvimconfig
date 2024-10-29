@@ -77,7 +77,7 @@ return {
     })
 
     -- configure typescript server with plugin
-    lspconfig["tsserver"].setup({
+    lspconfig["ts_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
@@ -114,12 +114,6 @@ return {
           end,
         })
       end,
-    })
-
-    -- configure prisma orm server
-    lspconfig["prismals"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
     })
 
     -- configure graphql language server
@@ -210,11 +204,6 @@ return {
     })
 
     lspconfig["kotlin_language_server"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    lspconfig["nil_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })

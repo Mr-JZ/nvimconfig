@@ -1,9 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
-    -- "zbirenbaum/copilot-cmp",
-    "hrsh7th/cmp-emoji",
-    "Exafunction/codeium.nvim",
     {
       "MattiasMTS/cmp-dbee",
       dependencies = {
@@ -14,14 +11,8 @@ return {
     },
   },
   opts = function(_, opts)
-    -- table.insert(opts.sources, 1, {
-    --   name = "copilot",
-    --   group_index = 1,
-    --   priority = 50,
-    -- })
     local cmp = require("cmp")
     require("luasnip.loaders.from_vscode").lazy_load()
-    -- require("copilot").setup({})
 
     cmp.setup({
       snippet = {
@@ -39,15 +30,14 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-y>"] = cmp.mapping.completion(),
+        -- ["<C-y>"] = cmp.mapping.completion(),
         ["<C-a>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       }),
       sources = cmp.config.sources({
-        -- { name = "nvim_lsp" },
-        { name = "luasnip" }, -- For luasnip users.
+        { "cmp-dbee" },
         { name = "supermaven" },
-        { name = "cmp-dbee" },
+        { name = "luasnip" }, -- For luasnip users.
         { name = "buffer" },
       }),
     })

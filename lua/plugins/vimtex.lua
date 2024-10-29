@@ -1,5 +1,6 @@
 return {
   "lervag/vimtex",
+  enabled = false,
   -- I think it's a plugin for writing LaTeX documents.
   vim.cmd([[
     " This is necessary for VimTeX to load properly. The "indent" is optional.
