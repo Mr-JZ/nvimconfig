@@ -4,7 +4,7 @@ return {
   event = "VeryLazy",
   opts = {
       actions_paths = { home .. "/.config/nvim/lua/config/chatgpt-actions.json" },
-      api_key_cmd = "cat " .. home .. "/.config/nvim/lua/plugins/ai/api_key.txt",
+      api_key_cmd = "bw get password NVIM_OPENAI_KEY",
       openai_params = {
         model = "gpt-4o", -- Specify the newest model here
         max_tokens = 6024
