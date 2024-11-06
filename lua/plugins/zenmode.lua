@@ -1,5 +1,6 @@
 return {
   "folke/zen-mode.nvim",
+  event = "VeryLazy",
   opts = {
       window = {
         backdrop = 0.95,
@@ -7,13 +8,14 @@ return {
         height = 1, -- height of the Zen window
         options = {
           signcolumn = "no", -- disable signcolumn
-          number = false, -- disable number column
-          relativenumber = false, -- disable relative numbers
+          number = true, -- disable number column
+          relativenumber = true, -- disable relative numbers
           -- cursorline = false, -- disable cursorline
           -- cursorcolumn = false, -- disable cursor column
           -- foldcolumn = "0", -- disable fold column
           -- list = false, -- disable whitespace characters
         },
+        position = "center",
       },
       plugins = {
         -- disable some global vim options (vim.o...)

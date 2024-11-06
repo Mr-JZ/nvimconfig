@@ -3,7 +3,7 @@ return {
   dependencies = {
     { "nvim-telescope/telescope-ui-select.nvim" },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
-    { "nvim-telescope/telescope-dap.nvim" },
+    -- { "nvim-telescope/telescope-dap.nvim" },
     -- {
     --   "jmbuhr/telescope-zotero.nvim",
     --   enabled = true,
@@ -109,7 +109,7 @@ return {
     })
     telescope.load_extension("fzf")
     telescope.load_extension("ui-select")
-    telescope.load_extension("dap")
+    -- telescope.load_extension("dap")
     -- telescope.load_extension("zotero")
   end,
 }
