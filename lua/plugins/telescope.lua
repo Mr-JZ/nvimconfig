@@ -17,6 +17,25 @@ return {
     -- },
     "nvim-tree/nvim-web-devicons",
     "folke/todo-comments.nvim",
+    {
+      "danielfalk/smart-open.nvim",
+      branch = "0.2.x",
+      dependencies = {
+        "kkharji/sqlite.lua",
+        { "nvim-telescope/telescope-fzy-native.nvim" },
+      },
+    },
+
+    "AckslD/nvim-neoclip.lua",
+    "danielvolchek/tailiscope.nvim",
+    "debugloop/telescope-undo.nvim",
+    -- "natecraddock/telescope-zf-native.nvim",
+    "piersolenski/telescope-import.nvim",
+    {
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      version = "^1.0.0",
+    },
+    "vuki656/package-info.nvim",
   },
   config = function()
     local telescope = require("telescope")
@@ -105,10 +124,22 @@ return {
           override_file_sorter = true, -- override the file sorter
           case_mode = "smart_case", -- or "ignore_case" or "respect_case"
         },
+      -- smart_open = {
+      --   cwd_only = true,
+      --   filename_first = true,
+      -- },
       },
     })
     telescope.load_extension("fzf")
     telescope.load_extension("ui-select")
+    telescope.load_extension("import")
+    telescope.load_extension("live_grep_args")
+    telescope.load_extension("neoclip")
+    telescope.load_extension("notify")
+    telescope.load_extension("package_info")
+    -- telescope.load_extension("smart_open")
+    telescope.load_extension("tailiscope")
+    telescope.load_extension("undo")
     -- telescope.load_extension("dap")
     -- telescope.load_extension("zotero")
   end,
