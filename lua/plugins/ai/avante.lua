@@ -9,6 +9,9 @@ return {
       api_key_name = "cmd:bw get password NVIM_ANTHROPIC_API_KEY", -- the shell command must prefixed with `^cmd:(.*)`
     }
   },
+  keys = {
+    { "<leader>a", group = "avante:", desc = "Avante" },
+  },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
@@ -19,7 +22,7 @@ return {
     "MunifTanjim/nui.nvim",
     --- The below dependencies are optional,
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-    "zbirenbaum/copilot.lua", -- for providers='copilot'
+    -- "zbirenbaum/copilot.lua", -- for providers='copilot'
     {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",
