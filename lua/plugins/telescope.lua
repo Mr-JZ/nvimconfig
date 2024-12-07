@@ -37,6 +37,20 @@ return {
     },
     "vuki656/package-info.nvim",
   },
+  keys = {
+    { "<leader>f<leader>", "<cmd>Telescope find_files<cr>", desc = "Find File" },
+    { "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Find Word" },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffer" },
+    { "<leader>fH", "<cmd>Telescope help_tags<cr>", desc = "Find Help" },
+    { "<leader>fh", "<cmd>Telescope harpoon<cr>", desc = "Find Harpoon" },
+    { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Find Old File" },
+    { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Find Mark" },
+    { "<leader>fc", "<cmd>Telescope colorscheme<cr>", desc = "Find Colorscheme" },
+    { "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "Find Word" },
+    { "<leader>fr", "<cmd>Telescope registers<cr>", desc = "Find Register" },
+    { "<leader>fT", "<cmd>Telescope treesitter<cr>", desc = "Find Treesitter" },
+    { "<leader>ft", "<cmd>Telescope todo-comments<cr>", desc = "Find File" },
+  },
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
