@@ -46,6 +46,11 @@ return {
 
     local trouble = require("trouble")
     local trouble_telescope = require("trouble.sources.telescope")
+    local wk = require("which-key")
+
+    wk.add({
+      { "<leader>f", group = "Find", desc = "Find" },
+    })
 
     -- or create your custom action
     local custom_actions = transform_mod({
