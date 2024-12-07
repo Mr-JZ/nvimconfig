@@ -9,7 +9,10 @@ local keymap = vim.keymap -- for conciseness
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
+keymap.set("n", "<leader>e", "<cmd>Explore<CR>", { desc = "Open explorer" }) -- open explorer
+
 -- window management
+--
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
