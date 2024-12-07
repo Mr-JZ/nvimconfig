@@ -36,10 +36,11 @@ return {
       }),
       sources = cmp.config.sources({
         { "cmp-dbee" },
-        { name = "supermaven" },
+        -- { name = "supermaven" },
         { name = "luasnip" }, -- For luasnip users.
         { name = "buffer" },
-      }),
+        { name = "nvim_lsp" },
+        }),
     })
   end,
 }
