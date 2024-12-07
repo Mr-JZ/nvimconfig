@@ -4,7 +4,7 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
 vim.cmd([[command! -nargs=0 GoToCommand :Telescope commands]])
--- vim.cmd([[command! -nargs=0 GoToSession :SessionRestore]])
+vim.cmd([[command! -nargs=0 GoToSession :SessionRestore]])
 vim.cmd([[command! -nargs=0 GoToFile :Telescope smart_open]])
 vim.cmd([[command! -nargs=0 GoToSymbol :Telescope lsp_document_symbols]])
 vim.cmd([[command! -nargs=0 Grep :Telescope live_grep]])
