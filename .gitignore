@@ -48,3 +48,4 @@ foo.*
 *.log
 data
 lua/plugins/ai/api_key.txt
+lua/plugins/alpha.lua
