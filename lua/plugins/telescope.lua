@@ -140,7 +140,9 @@ return {
     -- telescope.load_extension("smart_open")
     telescope.load_extension("tailiscope")
     telescope.load_extension("undo")
+    telescope.load_extension("todo-comments")
     -- telescope.load_extension("dap")
     -- telescope.load_extension("zotero")
+    telescope.load_extension("harpoon")
   end,
 }
