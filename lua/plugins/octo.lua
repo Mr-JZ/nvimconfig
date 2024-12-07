@@ -7,7 +7,8 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   keys = {
-    { "<space>oo", "<cmd>Octo<cr>", desc = "Octo" },
+    { "<leader>oo", "<cmd>Octo<cr>", desc = "Octo" },
+    { "<leader>o", group = "octo", desc = "Octo" },
   },
   opts = {
       enable_builtin = true,
