@@ -50,6 +50,7 @@ return {
     { "<leader>fr", "<cmd>Telescope registers<cr>", desc = "Find Register" },
     { "<leader>fT", "<cmd>Telescope treesitter<cr>", desc = "Find Treesitter" },
     { "<leader>ft", "<cmd>Telescope todo-comments<cr>", desc = "Find File" },
+    { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Find shortcuts" },
   },
   config = function()
     local telescope = require("telescope")
