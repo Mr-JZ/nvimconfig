@@ -3,6 +3,13 @@
 -- Add any additional options here
 vim.cmd("let g:netrw_liststyle = 3")
 
+vim.cmd([[command! -nargs=0 GoToCommand :Telescope commands]])
+-- vim.cmd([[command! -nargs=0 GoToSession :SessionRestore]])
+vim.cmd([[command! -nargs=0 GoToFile :Telescope smart_open]])
+vim.cmd([[command! -nargs=0 GoToSymbol :Telescope lsp_document_symbols]])
+vim.cmd([[command! -nargs=0 Grep :Telescope live_grep]])
+vim.cmd([[command! -nargs=0 SmartGoTo :Telescope smart_goto]])
+
 local opt = vim.opt
 
 opt.relativenumber = true
@@ -16,6 +23,7 @@ opt.autoindent = true -- copy indent from current line when starting new one
 
 opt.wrap = false
 
+opt.scrolloff = 15 -- scroll when you are 8 lines away from the top/bottom
 -- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
