@@ -4,6 +4,12 @@ return {-- lazy.nvim
   enabled = true,
   opts = {
     -- add any options here
+    popupmenu = {
+      enabled = false,
+    },
+    notify = {
+      enabled = false,
+    },
   },
   dependencies = {
     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
