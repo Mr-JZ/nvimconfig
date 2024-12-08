@@ -9,7 +9,7 @@ return {
     dashboard = { enabled = true },
     notifier = {
       enabled = true,
-      timeout = 3000,
+      timeout = 1000,
     },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
@@ -17,7 +17,7 @@ return {
     styles = {
       notification = {
         wo = { wrap = true } -- Wrap notifications
-      }
+      },
     }
   },
   keys = {

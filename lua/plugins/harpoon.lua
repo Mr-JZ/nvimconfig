@@ -12,13 +12,11 @@ return {
     })
 
     -- Add keymaps
-    vim.keymap.set("n", "A-h", function()
+    vim.keymap.set("n", "<leader>a", function()
       harpoon:list():add()
     end, { desc = "Harpoon: add file" })
-
-    vim.keymap.set("n", "<leader>H", function()
-      harpoon.ui:toggle_quick_menu()
-    end, { desc = "Harpoon: toggle quick menu" })
+    
+    vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
     -- Optional: Add navigation keymaps
        vim.keymap.set("n", "<A-j>", function() harpoon:list():select(1) end)
