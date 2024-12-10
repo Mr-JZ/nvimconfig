@@ -10,7 +10,7 @@ return {
     }
   },
   keys = {
-    { "<leader>a", group = "avante:", desc = "Avante" },
+    { "<leader>A", group = "avante:", desc = "Avante" },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
