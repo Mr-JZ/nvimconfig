@@ -6,4 +6,5 @@ return {
       highlight = { enable = true },
       indent = { enable = true },
     }
+    -- TODO: add treesitter movement: that means you can move to a function definition with ]m or select a function with [m
 }
