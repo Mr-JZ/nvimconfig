@@ -1,7 +1,11 @@
 return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = { 
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope.nvim",
+  },
+  -- TODO: implement the telescope integration descipte in this video https://www.youtube.com/watch?v=nZPVgIrOKC4
   config = function()
     local harpoon = require("harpoon")
     

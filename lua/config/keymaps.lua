@@ -10,6 +10,7 @@ keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- incremen
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
 keymap.set("n", "<leader>e", "<cmd>Explore<CR>", { desc = "Open explorer" }) -- open explorer
+-- TODO: if you move stuff with < and >, the selected text should stay selected
 
 -- window management
 --

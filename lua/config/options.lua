@@ -12,6 +12,8 @@ vim.cmd([[command! -nargs=0 SmartGoTo :Telescope smart_goto]])
 
 local opt = vim.opt
 
+-- TODO: make that the preview of the FileExplorer opens on the right
+
 opt.relativenumber = true
 opt.number = true
 
