@@ -34,7 +34,6 @@ return {
         "lua_ls",
         "graphql",
         "emmet_ls",
-        "pyright",
         "gopls",
         "ltex",
         "docker_compose_language_service",
