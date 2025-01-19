@@ -1,5 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
+  enabled = true,
   dependencies = {
     {
       "MattiasMTS/cmp-dbee",
@@ -35,7 +36,7 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       }),
       sources = cmp.config.sources({
-        { "cmp-dbee" },
+        { name = "cmp-dbee" },
         -- { name = "supermaven" },
         { name = "luasnip" }, -- For luasnip users.
         { name = "buffer" },
