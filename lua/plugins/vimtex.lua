@@ -1,6 +1,6 @@
 return {
   "lervag/vimtex",
-  enabled = false,
+  enabled = true,
   -- I think it's a plugin for writing LaTeX documents.
   init = function()
       -- " This is necessary for VimTeX to load properly. The "indent" is optional.
