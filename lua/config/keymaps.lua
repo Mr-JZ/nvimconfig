@@ -9,8 +9,10 @@ local keymap = vim.keymap -- for conciseness
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
-keymap.set("n", "<leader>e", "<cmd>Explore<CR>", { desc = "Open explorer" }) -- open explorer
--- TODO: if you move stuff with < and >, the selected text should stay selected
+keymap.set("n", "<leader>e", "<cmd>Oil<CR>", { desc = "Open explorer" }) -- open explorer
+-- Keep selection after indenting
+keymap.set("v", "<", "<gv", { desc = "Indent left and keep selection" })
+keymap.set("v", ">", ">gv", { desc = "Indent right and keep selection" })
 
 -- window management
 --
@@ -20,6 +22,9 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+-- Reload configuration
+keymap.set("n", "<leader>sr", "<cmd>lua require('lazy').sync()<CR>", { desc = "Sync and reload plugins" })
+
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 keymap.set("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
 keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
@@ -27,3 +32,11 @@ keymap.set("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search
 keymap.set("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search Result" })
 keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
 keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
+
+-- Toggle invisible characters
+vim.keymap.set(
+  "n",
+  "<leader>il",
+  ":set list!<CR>",
+  { noremap = true, silent = true, desc = "Toggle invisible characters" }
+)
