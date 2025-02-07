@@ -208,5 +208,31 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
+
+    -- configure eslint server
+    lspconfig["eslint"].setup({
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+        -- Enable formatting
+        client.server_capabilities.documentFormattingProvider = true
+      end,
+      settings = {
+        -- helps eslint find the eslintrc when it's placed in a subfolder
+        workingDirectory = { mode = "auto" },
+      },
+      root_dir = util.root_pattern(".eslintrc", ".eslintrc.js", ".eslintrc.cjs", ".eslintrc.json"),
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+        "vue",
+        "svelte",
+        "astro",
+      },
+    })
   end,
 }
