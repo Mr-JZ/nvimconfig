@@ -12,8 +12,6 @@ vim.cmd([[command! -nargs=0 SmartGoTo :Telescope smart_goto]])
 
 local opt = vim.opt
 
--- TODO: make that the preview of the FileExplorer opens on the right
-
 opt.relativenumber = true
 opt.number = true
 
@@ -50,3 +48,16 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- Show invisible characters
+opt.list = true
+opt.listchars = {
+  space = "·",
+  tab = "→ ",
+  trail = "·",
+  extends = "›",
+  precedes = "‹",
+  leadmultispace = "│ ", -- Show a vertical line for each level of indentation
+  multispace = "│ ", -- Show vertical lines between spaces
+  lead = "│",
+}
