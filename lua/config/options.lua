@@ -50,7 +50,7 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.swapfile = false
 
 -- Show invisible characters
-opt.list = true
+opt.list = false
 opt.listchars = {
   space = "·",
   tab = "→ ",
