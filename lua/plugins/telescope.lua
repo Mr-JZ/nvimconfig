@@ -2,7 +2,10 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     { "nvim-telescope/telescope-ui-select.nvim" },
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+    },
     -- { "nvim-telescope/telescope-dap.nvim" },
     -- {
     --   "jmbuhr/telescope-zotero.nvim",
@@ -49,7 +52,7 @@ return {
     { "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "Find Word" },
     { "<leader>fr", "<cmd>Telescope registers<cr>", desc = "Find Register" },
     { "<leader>fT", "<cmd>Telescope treesitter<cr>", desc = "Find Treesitter" },
-    { "<leader>ft", "<cmd>Telescope todo-comments<cr>", desc = "Find File" },
+    { "<leader>ft", "<cmd>Telescope todo-comments<cr>", desc = "Find TODO comments" },
     { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Find shortcuts" },
   },
   config = function()
@@ -144,10 +147,10 @@ return {
           override_file_sorter = true, -- override the file sorter
           case_mode = "smart_case", -- or "ignore_case" or "respect_case"
         },
-      -- smart_open = {
-      --   cwd_only = true,
-      --   filename_first = true,
-      -- },
+        -- smart_open = {
+        --   cwd_only = true,
+        --   filename_first = true,
+        -- },
       },
     })
     telescope.load_extension("fzf")
