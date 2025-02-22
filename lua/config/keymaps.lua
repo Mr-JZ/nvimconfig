@@ -40,3 +40,6 @@ vim.keymap.set(
   ":set list!<CR>",
   { noremap = true, silent = true, desc = "Toggle invisible characters" }
 )
+
+-- Disable F1 Help key
+keymap.set({ "n", "i" }, "<F1>", "<Nop>", { noremap = true, silent = true, desc = "Disable help key" })
