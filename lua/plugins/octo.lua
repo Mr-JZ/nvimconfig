@@ -15,8 +15,8 @@ return {
     { "<leader>gic", "<cmd>Octo issue create<cr>", desc = "Octo Issue Create" },
     { "<leader>gim", "<cmd>Octo search is:issue is:open assignee:@me<cr>", desc = "Octo Open issue assigned to me" },
     { "<leader>gid", "<cmd>Octo issue develop<cr>", desc = "Octo Issue Develop" },
-    { "<leader>gpl", "<cmd>Octo pull request list<cr>", desc = "Octo Pull Request List" },
-    { "<leader>gpc", "<cmd>Octo pull request create<cr>", desc = "Octo Pull Request Create" },
+    { "<leader>gpl", "<cmd>Octo pr list<cr>", desc = "Octo Pull Request List" },
+    { "<leader>gpc", "<cmd>Octo pr create<cr>", desc = "Octo Pull Request Create" },
   },
   config = function()
     require("octo").setup({
