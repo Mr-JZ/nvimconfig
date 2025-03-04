@@ -36,10 +36,15 @@ keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search
 -- Toggle invisible characters
 vim.keymap.set(
   "n",
-  "<leader>il",
+  "<leader>li",
   ":set list!<CR>",
   { noremap = true, silent = true, desc = "Toggle invisible characters" }
 )
 
 -- Disable F1 Help key
 keymap.set({ "n", "i" }, "<F1>", "<Nop>", { noremap = true, silent = true, desc = "Disable help key" })
+
+-- Toggle relative line numbers
+keymap.set("n", "<leader>lr", function()
+  vim.wo.relativenumber = not vim.wo.relativenumber
+end, { desc = "Toggle relative line numbers" })
