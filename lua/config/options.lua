@@ -61,3 +61,5 @@ opt.listchars = {
   multispace = "│ ", -- Show vertical lines between spaces
   lead = "│",
 }
+
+opt.conceallevel = 1
