@@ -5,12 +5,13 @@ return {
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   keys = {
     { "<F1>", "<cmd>AvanteAsk<cr>", desc = "Toggle Avante" },
+    { "am", "<cmd>AvanteModels<cr>", desc = "Change the model that is used by Avante" },
   },
   opts = {
     -- add any opts here
     -- for example
     ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-    provider = "claude",
+    provider = "gemini",
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
