@@ -21,7 +21,7 @@ opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
-opt.wrap = false
+opt.wrap = true
 
 opt.scrolloff = 15 -- scroll when you are 8 lines away from the top/bottom
 -- search settings
