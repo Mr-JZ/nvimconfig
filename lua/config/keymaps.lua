@@ -33,6 +33,28 @@ keymap.set("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev S
 keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
 keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
 
+vim.keymap.set("n", "<leader>ss", function()
+  local angularSwitcher = require("config.angular_component_switcher")
+  local currentFile = vim.api.nvim_buf_get_name(0)
+
+  -- Skip the Angular project check if the file is clearly an Angular component
+  local isComponent = currentFile:match("%.component%.ts$") or currentFile:match("%.component%.html$")
+
+  if isComponent or angularSwitcher.isAngularProject() then
+    if currentFile:match("%.component%.ts$") then
+      angularSwitcher.switchComponent("html")
+    elseif currentFile:match("%.component%.html$") then
+      angularSwitcher.switchComponent("ts")
+    else
+      vim.notify(
+        "Not an Angular component file. Current file must end with .component.ts or .component.html",
+        vim.log.levels.WARN
+      )
+    end
+  else
+    vim.notify("Not an Angular project or component file.", vim.log.levels.WARN)
+  end
+end, { noremap = true, silent = true, desc = "Switch between .ts and .html Angular components" })
 -- Toggle invisible characters
 vim.keymap.set(
   "n",
