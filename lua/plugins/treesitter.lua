@@ -6,6 +6,7 @@ return {
     highlight = { enable = true },
     indent = { enable = true },
     textobjects = {
+      ensure_installed = { "go", "gomod", "lua", "nix", "typescrypt" }, -- automatically install textobjects
       select = {
         enable = true,
         lookahead = true, -- Automatically jump forward to textobj
