@@ -3,7 +3,7 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
@@ -11,10 +11,8 @@ return {
     local lspconfig = require("lspconfig")
     local util = require("lspconfig/util")
 
-    -- import cmp-nvim-lsp plugin
     local opts = { noremap = true, silent = true }
     local keymap = vim.keymap -- for conciseness
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local on_attach = function(client, bufnr)
       opts.buffer = bufnr
 
@@ -60,8 +58,7 @@ return {
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
-    -- local capabilities = require("blink.cmp").get_lsp_capabilities()
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
     -- Change the Diagnostic symbols in the sign column (gutter)
     -- (not in youtube nvim video)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -284,9 +281,9 @@ return {
         "vue",
         "html",
         "markdown",
-        "json",
-        "jsonc",
-        "yaml",
+        -- "json",
+        -- "jsonc",
+        -- "yaml",
         "toml",
         "xml",
         "gql",
