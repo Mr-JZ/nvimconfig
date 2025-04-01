@@ -1,7 +1,32 @@
 local function isAngularProject()
-  -- Check for the presence of angular.json or angular.json in the root directory
+  -- First check: Look for angular.json in the root directory (standard Angular project)
   local angularJsonPath = vim.fn.globpath(vim.fn.getcwd(), "angular.json")
-  return angularJsonPath ~= ""
+  if angularJsonPath ~= "" then
+    return true
+  end
+
+  -- Second check: Look for angular.json in parent directories (monorepo structure)
+  local currentFile = vim.api.nvim_buf_get_name(0)
+  local currentDir = vim.fn.fnamemodify(currentFile, ":h")
+
+  -- Check up to 5 parent directories for angular.json
+  for i = 1, 5 do
+    local checkPath = currentDir .. "/angular.json"
+    if vim.fn.filereadable(checkPath) == 1 then
+      return true
+    end
+
+    -- Move up one directory
+    currentDir = vim.fn.fnamemodify(currentDir, ":h")
+  end
+
+  -- Third check: Look for component-like structure in the file path
+  if currentFile:match("%.component%.ts$") or currentFile:match("%.component%.html$") then
+    -- If the file follows Angular naming conventions, assume it's an Angular project
+    return true
+  end
+
+  return false
 end
 
 local function getComponentName(filePath)
