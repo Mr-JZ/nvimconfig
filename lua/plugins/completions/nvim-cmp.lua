@@ -5,7 +5,7 @@ return {
     {
       "MattiasMTS/cmp-dbee",
       dependencies = {
-        {"kndndrj/nvim-dbee"}
+        { "kndndrj/nvim-dbee" },
       },
       ft = "sql", -- optional but good to have
       opts = {}, -- needed
@@ -17,7 +17,6 @@ return {
 
     cmp.setup({
       snippet = {
-        -- REQUIRED - you must specify a snippet engine
         expand = function(args)
           require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
         end,
@@ -40,7 +39,7 @@ return {
         { name = "luasnip" }, -- For luasnip users.
         { name = "buffer" },
         { name = "nvim_lsp" },
-        }),
+      }),
     })
   end,
 }
