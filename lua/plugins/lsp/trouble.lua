@@ -12,6 +12,7 @@ return {
         end
         trouble.toggle("diagnostics")
       end,
+      mode = { "n", "v" },
       desc = "Toggle Trouble Diagnostics",
     },
   },
