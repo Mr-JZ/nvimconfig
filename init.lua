@@ -2,6 +2,7 @@
 require("config.options")
 require("config.keymaps")
 require("config.hsl_to_hex")
+require("config.cursor_functions")
 require("config.hsl_commands").setup()
 require("config.lazy")
 
