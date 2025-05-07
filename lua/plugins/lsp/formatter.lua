@@ -5,11 +5,13 @@ return {
   cmd = { "ConformInfo" },
   config = function()
     ---@alias Formatter "prettier" | "eslint_d" | string
-    local formatter = "eslint_d"
+    local formatter = "prettierd"
+    -- local formatter = "eslint_d"
 
     require("conform").setup({
       formatters_by_ft = {
         typescript = { formatter },
+        htmlangular = { formatter },
         javascriptreact = { formatter },
         typescriptreact = { formatter },
         svelte = { formatter },
