@@ -1,5 +1,5 @@
 return {
-  'ThePrimeagen/vim-be-good',
-  enabled = false,
-  event = "VeryLazy"
+  "ThePrimeagen/vim-be-good",
+  enabled = true,
+  event = "VeryLazy",
 }
