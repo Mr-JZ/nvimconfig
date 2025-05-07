@@ -16,11 +16,10 @@ return {
     -- The system_prompt type supports both a string and a function that returns a string. Using a function here allows dynamically updating the prompt with mcphub
     openai = {
       endpoint = "https://api.openai.com/v1",
-      model = "gpt-4.1",
+      model = "gpt-4.1-2025-04-14",
     },
     claude = {
-      endpoint = "https://api.openai.com/v1",
-      model = "claude-3.5",
+      model = "claude-3-5-sonnet-latest",
     },
     gemini = {
       endpoint = "https://api.gemini.com/v1",
