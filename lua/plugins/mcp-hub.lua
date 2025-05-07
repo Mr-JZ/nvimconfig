@@ -10,7 +10,7 @@ return {
   -- build = "bundled_build.lua", -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
   opts = {
     port = 37373, -- Default port for MCP Hub
-    config = vim.fn.expand("~/.config/mcphub/servers.json"), -- Absolute path to config file location (will create if not exists)
+    config = vim.fn.expand("/home/mr-jz/.config/mcphub/servers.json"), -- Absolute path to config file location (will create if not exists)
     native_servers = {}, -- add your native servers here
 
     auto_approve = true, -- Auto approve mcp tool calls
@@ -59,7 +59,7 @@ return {
     log = {
       level = vim.log.levels.DEBUG,
       to_file = true,
-      file_path = "~/.config/mcphub/logs.log",
+      file_path = "/home/mr-jz/.config/mcphub/logs.log",
       prefix = "MCPHub",
     },
   },
