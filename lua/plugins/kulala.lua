@@ -1,5 +1,5 @@
-return { 
-  'mistweaverco/kulala.nvim', 
-  enabled = true,
-  opts = {} 
+return {
+  "mistweaverco/kulala.nvim",
+  enabled = false,
+  opts = {},
 }
