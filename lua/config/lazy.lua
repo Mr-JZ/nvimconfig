@@ -12,15 +12,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    -- add LazyVim and import its plugins
-    -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- { import = "lazyvim.plugins.extras.lsp.none-ls" },
-    { import = "plugins" },
-    { import = "plugins.ai" },
-    { import = "plugins.completions" },
-    { import = "plugins.dap" },
-    { import = "plugins.lsp" }
-  },{
+  -- add LazyVim and import its plugins
+  -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+  -- { import = "lazyvim.plugins.extras.linting.eslint" },
+  { import = "plugins" },
+  { import = "plugins.ai" },
+  { import = "plugins.completions" },
+  { import = "plugins.dap" },
+  { import = "plugins.lsp" },
+}, {
   checker = {
     enabled = true,
     notify = false,
