@@ -5,8 +5,15 @@ return {
   cmd = { "ConformInfo" },
   config = function()
     ---@alias Formatter "prettier" | "eslint_d" | string
-    local formatter = "prettierd"
-    -- local formatter = "eslint_d"
+    -- Dynamically select formatter based on presence of .prettierrc.json in project root
+    local cwd = vim.loop.cwd()
+    local prettier_config = cwd .. "/.prettierrc.json"
+    local formatter
+    if vim.loop.fs_stat(prettier_config) then
+      formatter = "prettierd"
+    else
+      formatter = "eslint_d"
+    end
 
     require("conform").setup({
       formatters_by_ft = {
@@ -16,8 +23,10 @@ return {
         typescriptreact = { formatter },
         svelte = { formatter },
         css = { formatter },
+        scss = { formatter },
         html = { formatter },
         json = { formatter },
+        jsonc = { formatter },
         yaml = { formatter },
         markdown = { formatter },
         astro = { formatter },
