@@ -27,6 +27,7 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
+        "angularls",
         "ts_ls",
         "html",
         "cssls",
@@ -34,9 +35,6 @@ return {
         "graphql",
         "emmet_ls",
         "gopls",
-        "ltex",
-        "docker_compose_language_service",
-        "dockerls",
         "astro",
         "templ",
       },
@@ -46,10 +44,8 @@ return {
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettier", -- prettier formatter
-        -- "isort", -- python formatter
-        -- "black", -- python formatter
-        -- "pylint", -- python linter
+        "eslint_d",
+        "prettierd", -- prettier formatter
         "gofumpt",
         "goimports-reviser",
         "golines",
