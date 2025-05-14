@@ -50,6 +50,23 @@ return {
       opts.desc = "Go to next diagnostic"
       keymap.set("n", "]d", vim.diagnostic.get_next, opts) -- jump to next diagnostic in buffer
 
+      opts.desc = "Organize Imports"
+      keymap.set("n", "<leader>cO", LazyVim.lsp.action["source.organizeImports"], opts)
+
+      opts.desc = "Add Missing Imports"
+      keymap.set("n", "<leader>cM", LazyVim.lsp.action["source.addMissingImports.ts"], opts)
+
+      opts.desc = "Remove Unused"
+      keymap.set("n", "<leader>cu", LazyVim.lsp.action["source.removeUnused.ts"], opts)
+
+      opts.desc = "Fix All"
+      keymap.set("n", "<leader>cD", LazyVim.lsp.action["source.fixAll.ts"], opts)
+
+      opts.desc = "Select TypeScript Version"
+      keymap.set("n", "<leader>cV", function()
+        LazyVim.lsp.execute({ command = "typescript.selectTypeScriptVersion" })
+      end, opts)
+
       opts.desc = "Show documentation for what is under cursor"
       keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
