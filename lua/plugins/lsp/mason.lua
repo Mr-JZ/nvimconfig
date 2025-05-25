@@ -28,7 +28,6 @@ return {
       -- list of servers for mason to install
       ensure_installed = {
         "angularls",
-        "ts_ls",
         "html",
         "cssls",
         "tailwindcss",
@@ -39,7 +38,11 @@ return {
         "templ",
       },
       -- auto-install configured servers (with lspconfig)
-      automatic_installation = true, -- not the same as ensure_installed
+      automatic_enable = {
+        exclude = {
+          "ts_ls",
+        },
+      },
     })
 
     mason_tool_installer.setup({
@@ -50,7 +53,7 @@ return {
         "goimports-reviser",
         "golines",
       },
-      automatic_installation = true,
+      automatic_installation = false,
     })
   end,
 }
