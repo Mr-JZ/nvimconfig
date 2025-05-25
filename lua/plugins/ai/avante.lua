@@ -19,7 +19,7 @@ return {
       model = "gpt-4.1-2025-04-14",
     },
     claude = {
-      model = "claude-4-sonnet-latest",
+      model = "claude-sonnet-4-latest",
     },
     gemini = {
       endpoint = "https://api.gemini.com/v1",
