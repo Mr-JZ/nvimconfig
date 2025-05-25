@@ -54,6 +54,7 @@ return {
     { "<leader>fT", "<cmd>Telescope treesitter<cr>", desc = "Find Treesitter" },
     { "<leader>ft", "<cmd>Telescope todo-comments<cr>", desc = "Find TODO comments" },
     { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Find shortcuts" },
+    { "A-q", "<cmd>Telescope send_all_to_qflist<cr>", desc = "Send All to Quickfix" },
   },
   config = function()
     local telescope = require("telescope")
