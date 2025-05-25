@@ -11,7 +11,7 @@ return {
     -- add any opts here
     -- for example
     ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-    provider = "openai",
+    provider = "claude",
     -- other config
     -- The system_prompt type supports both a string and a function that returns a string. Using a function here allows dynamically updating the prompt with mcphub
     openai = {
@@ -19,7 +19,7 @@ return {
       model = "gpt-4.1-2025-04-14",
     },
     claude = {
-      model = "claude-3-5-sonnet-latest",
+      model = "claude-4-sonnet-latest",
     },
     gemini = {
       endpoint = "https://api.gemini.com/v1",
