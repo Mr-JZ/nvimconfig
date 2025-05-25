@@ -13,19 +13,34 @@ local function OpenVSCodeWithProjectAndCurrentFile()
     table.remove(path_parts)
   end
 
+  local command
   if project_root then
-    -- Construct the relative path of the current file from the project root
-    local current_file = vim.fn.expand("%")
-    local relative_path = vim.fn.fnamemodify(current_file, ":" .. #project_root + 2 .. ":.")
+    -- Get the absolute path of the current file
+    local current_file = vim.fn.expand("%:p")
+    local file_to_open = current_file
 
-    -- Construct the command to open VS Code
-    local command = 'cursor "' .. project_root .. '" "' .. relative_path .. '"'
-
-    -- Execute the command (you might need to adjust this based on your OS)
-    vim.fn.system(command .. " &") -- The '&' sends it to the background
+    -- Construct the command to open VS Code with project and file
+    command = 'cursor "' .. project_root .. '" "' .. file_to_open .. '"'
   else
-    vim.notify("Could not find project root (no .git directory found upwards).", vim.log.levels.WARN)
+    -- No git folder found, just open the current file
+    local current_file = vim.fn.expand("%:p") -- Get absolute path
+    command = 'cursor "' .. current_file .. '"'
   end
+
+  -- Notify the user about the command being executed
+  vim.notify("Executing: " .. command, vim.log.levels.INFO)
+
+  -- Simple shell execution (most compatible approach)
+  vim.fn.jobstart({'sh', '-c', command}, {
+    detach = true,
+    on_exit = function(_, code)
+      if code ~= 0 then
+        vim.schedule(function()
+          vim.notify("Error executing command (exit code: " .. code .. ")", vim.log.levels.ERROR)
+        end)
+      end
+    end
+  })
 end
 
 -- Make the function globally accessible
