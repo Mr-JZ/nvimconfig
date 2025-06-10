@@ -14,13 +14,15 @@ return {
     provider = "openai",
     -- other config
     -- The system_prompt type supports both a string and a function that returns a string. Using a function here allows dynamically updating the prompt with mcphub
-    openai = {
-      endpoint = "https://api.openai.com/v1",
-      model = "gpt-4.1-2025-04-14",
-    },
-    gemini = {
-      endpoint = "https://api.gemini.com/v1",
-      model = "gemini-2.5-pro",
+    providers = {
+      openai = {
+        endpoint = "https://api.openai.com/v1",
+        model = "gpt-4.1-2025-04-14",
+      },
+      gemini = {
+        endpoint = "https://api.gemini.com/v1",
+        model = "gemini-2.5-pro",
+      },
     },
     system_prompt = function()
       local hub = require("mcphub").get_hub_instance()
